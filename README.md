@@ -26,3 +26,6 @@ Um projeto simples de aprendizado em HTML, CSS e JavaScript, além de aprender u
 
 **18/09/2025 -**
     Primeiros passos com a estrutura básica da página, percebi que esqueci muita coisa que havia aprendido anos atrás quando estudei um pouco de front-end, mas não é o fim do mundo, em pouco tempo recupero o conhecimento perdido.
+
+**19/09/2025 -**
+    Dia de adicionar funcionalidades básicas do gerador, relembrei algumas regrinhas que havia esquecido e aprendi outras, dia produtivo. 
