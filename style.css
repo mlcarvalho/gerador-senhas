@@ -12,6 +12,14 @@ html, body{
     width: 50%;
     padding: 10px;
 }
-.resultados {
+.resultado {
     display: flex;
+    flex-direction: row;
+}
+.btn_copy{
+margin-left: 5px;
+}
+
+.input{
+    width: 35px;
 }

@@ -5,21 +5,23 @@
 <title>GERADOR DE SENHAS</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+
     </head>
 
 <body>
 
   <div class="container">
     <h1>GERADOR DE SENHAS</h1> 
-    <div class="resultado"><input type="text" readonly/></div>
+    <div class="resultado"><input type="text" id="res" placeholder="teste" readonly/><button class="btn_copy" id="copiar">Copiar</button></div>
     
 
-<div class="controles"><input type="number"/>
-    <button>Gerar Senha</button>
-    <button>Copiar Senha</button>
+<div class="controles">
+  <input type="number" class="input" id="tamanhoSenha"/>
+    <button id="gerarSenha" >Gerar Senha</button>
+    
 </div>
   </div>
 
+  <script src="script.js"></script>
 </body>
 </html>
