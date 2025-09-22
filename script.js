@@ -2,26 +2,56 @@ const inputResultado = document.getElementById("res");
 const botaoGerar = document.getElementById("gerarSenha");
 const botaoCopiar = document.getElementById("copiar");
 const tamanhoSenha = document.getElementById("tamanhoSenha");
+
+const caracteresEspeciais = document.getElementById("especiais");
+const checkNum = document.getElementById("numero");
+const checkMaius = document.getElementById("maiuscula");
+const checkMin = document.getElementById("minuscula");
+
 const letraMinuscula = "abcdefghijklmnopqrstuvwxyz";
 const letraMaiuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const caracteresEspeciais = "!@#$%^&*()-_=+[]{};:'\"\\|,<.>/?`~";
+const simbolos = "!@#$%^&*()-_=+[]{};:'\"\\|,<.>/?`~";
 const numeros = "0123456789";
+
+
 
 botaoGerar.addEventListener("click", criaSenha);
 botaoCopiar.addEventListener("click", adicionaAoClipboard)
 
 
-function criaSenha() {
 
+function criaSenha() {
+    
+    let pool = "";
 inputResultado.value = '';
 
-for (let i = 0; i < Number(tamanhoSenha.value); i++){
+if(caracteresEspeciais.checked == true){
+    pool += simbolos;
+} 
+if(checkMaius.checked == true){
+    pool += letraMaiuscula;
+}
+if(checkMin.checked == true){
+    pool += letraMinuscula;
+}
+if(checkNum.checked == true){
+    pool += numeros;
+} else{
+    pool = letraMinuscula;
+}
 
-inputResultado.value += letraMinuscula[
-    Math.floor(Math.random() * letraMinuscula.length)
-];
+for (let i = 0; i < Number(tamanhoSenha.value); i++){
+    
+    inputResultado.value += pool[
+        Math.floor(Math.random() * pool.length)
+    ];
 }
+
+
+
+
 }
+
 
     
 
@@ -33,6 +63,6 @@ function adicionaAoClipboard(){
     botaoCopiar.innerText = "Copiado!"
     setTimeout(()=> {
         botaoCopiar.innerText = "Copiar";
-    }, 3000); 
+    }, 2000); 
 }
 
