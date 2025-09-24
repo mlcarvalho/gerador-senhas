@@ -9,33 +9,58 @@
     </head>
 
 <body>
+<div class="container">
+         
+  <h1>GERADOR DE SENHAS</h1>
 
-  <div class="container">
-    <h1>GERADOR DE SENHAS</h1> 
+  <div id="geradorSenha">
     <div class="resultado"><input type="text" id="res" placeholder="teste" readonly/><button class="btn_copy" id="copiar">Copiar</button></div>
-    
+            
+      <div class="controles">
+          <input type="number" class="input" id="tamanhoSenha"/>
 
-<div class="controles">
-  <input type="number" class="input" id="tamanhoSenha"/>
+          <input type="checkbox" id="minuscula" value="minuscula">
+          <label for="minuscula"> Minuscula </label>
 
-  <input type="checkbox" id="minuscula" value="minuscula">
-  <label for="minuscula"> Minuscula </label>
+            <input type="checkbox" id="maiuscula" value="maiuscula">
+          <label for="maiuscula"> Maiúscula </label>
 
-    <input type="checkbox" id="maiuscula" value="maiuscula">
-  <label for="maiuscula"> Maiúscula </label>
+            <input type="checkbox" id="numero" value="1" max="150" min="1">
+          <label for="numero"> 123... </label>
 
-    <input type="checkbox" id="numero" value="1" max="150" min="1">
-  <label for="numero"> 123... </label>
+              <input type="checkbox" id="especiais" value="especiais">
+          <label for="especiais"> [@#$%^&* </label>
 
-      <input type="checkbox" id="especiais" value="especiais">
-  <label for="especiais"> [@#$%^&* </label>
-
-  
-    
-<button id="gerarSenha" >Gerar Senha</button>
-    
-</div>
+          
+            
+        <button id="gerarSenha" >Gerar Senha</button>
+        <button id="btnHistorico" >Histórico</button>
+      </div>
   </div>
+
+  <div class="historico" id="histAparece">
+
+    <div id="historicoDiv">
+        <table>
+            <thead>
+                <tr>
+                    <th>Senha</th>
+                    <th>Data/Hora</th>
+                    <th>Tamanho</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui entra cada linha gerada -->
+            </tbody>
+        </table>
+    </div>
+
+          <button id="fechar">Fechar</button>
+          <button id="deletar">Deletar</button>
+  </div> 
+
+</div>
+  
 
   <script src="script.js"></script>
 </body>
