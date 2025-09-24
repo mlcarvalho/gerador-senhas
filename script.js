@@ -13,18 +13,30 @@ const letraMaiuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const simbolos = "!@#$%^&*()-_=+[]{};:'\"\\|,<.>/?`~";
 const numeros = "0123456789";
 
-
-
 botaoGerar.addEventListener("click", criaSenha);
 botaoCopiar.addEventListener("click", adicionaAoClipboard)
 
 
-
 function criaSenha() {
     
-    let pool = "";
-inputResultado.value = '';
+    inputResultado.value = '';
+ let pool = "";
+    let opcoes = [
+        [caracteresEspeciais, simbolos],
+        [checkMaius, letraMaiuscula],
+        [checkMin, letraMinuscula],
+        [checkNum, numeros]
+    ];
 
+    
+
+    opcoes.forEach(([checkbox, caracteres]) => {
+        if (checkbox && checkbox.checked){
+            pool += caracteres;
+        }
+        
+    });
+/*
 if(caracteresEspeciais.checked == true){
     pool += simbolos;
 } 
@@ -39,7 +51,7 @@ if(checkNum.checked == true){
 } else{
     pool = letraMinuscula;
 }
-
+*/
 for (let i = 0; i < Number(tamanhoSenha.value); i++){
     
     inputResultado.value += pool[
@@ -47,14 +59,7 @@ for (let i = 0; i < Number(tamanhoSenha.value); i++){
     ];
 }
 
-
-
-
 }
-
-
-    
-
 
 function adicionaAoClipboard(){
 
