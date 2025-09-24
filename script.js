@@ -1,26 +1,32 @@
+//Elementos do HTML
 const inputResultado = document.getElementById("res");
 const botaoGerar = document.getElementById("gerarSenha");
 const botaoCopiar = document.getElementById("copiar");
 const tamanhoSenha = document.getElementById("tamanhoSenha");
 
+//checkbox
 const caracteresEspeciais = document.getElementById("especiais");
 const checkNum = document.getElementById("numero");
 const checkMaius = document.getElementById("maiuscula");
 const checkMin = document.getElementById("minuscula");
 
+//strings para gerar a senha
 const letraMinuscula = "abcdefghijklmnopqrstuvwxyz";
 const letraMaiuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const simbolos = "!@#$%^&*()-_=+[]{};:'\"\\|,<.>/?`~";
 const numeros = "0123456789";
 
+//Escuta os botões.
 botaoGerar.addEventListener("click", criaSenha);
 botaoCopiar.addEventListener("click", adicionaAoClipboard)
 
-
+//Função para gerar a senha
 function criaSenha() {
     
     inputResultado.value = '';
- let pool = "";
+    let pool = "";
+    
+    //Elementos e strings
     let opcoes = [
         [caracteresEspeciais, simbolos],
         [checkMaius, letraMaiuscula],
@@ -28,30 +34,15 @@ function criaSenha() {
         [checkNum, numeros]
     ];
 
-    
-
+    //Confere se o checkbox foi selecionado e adiciona na pool
     opcoes.forEach(([checkbox, caracteres]) => {
         if (checkbox && checkbox.checked){
             pool += caracteres;
         }
         
     });
-/*
-if(caracteresEspeciais.checked == true){
-    pool += simbolos;
-} 
-if(checkMaius.checked == true){
-    pool += letraMaiuscula;
-}
-if(checkMin.checked == true){
-    pool += letraMinuscula;
-}
-if(checkNum.checked == true){
-    pool += numeros;
-} else{
-    pool = letraMinuscula;
-}
-*/
+
+    //Gera a senha aleatoriamente usando as strings da pool
 for (let i = 0; i < Number(tamanhoSenha.value); i++){
     
     inputResultado.value += pool[
@@ -61,6 +52,7 @@ for (let i = 0; i < Number(tamanhoSenha.value); i++){
 
 }
 
+//Função para copiar a senha
 function adicionaAoClipboard(){
 
     navigator.clipboard.writeText(inputResultado.value);
