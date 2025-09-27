@@ -8,7 +8,7 @@ const btnfechar = document.getElementById("fechar");
 const btnDeletar = document.getElementById("deletar");
 const btnHistorico = document.getElementById("btnHistorico");
 const histAparece = document.getElementById("histAparece");
-
+const bodyTabela = document.getElementById("tabelaHistorico");
 //checkbox
 const caracteresEspeciais = document.getElementById("especiais");
 const checkNum = document.getElementById("numero");
@@ -29,6 +29,13 @@ botaoCopiar.addEventListener("click", adicionaAoClipboard);
 btnfechar.addEventListener("click", fecharHistorico);
 btnDeletar.addEventListener("click", deletaHistorico);
 btnHistorico.addEventListener("click", abreHist);
+
+//limita a entrada manual do usuário no input de tamanho da senha
+tamanhoSenha.addEventListener("change", function(){
+    let m = parseInt(this.value);
+    if (m < 8) this.value = 8;
+    if (m > 50) this.value = 50;
+});
 
 //Função para gerar a senha
 function criaSenha() {
@@ -76,8 +83,15 @@ try {
 historico.push(inputResultado.value);
 
 localStorage.setItem("historico", JSON.stringify(historico));
+ 
+let novaSenha = inputResultado.value;
+historico.push(novaSenha);
+localStorage.setItem("historico", JSON.stringify(historico));
+adicionarNaTabela(novaSenha);
 
-console.log(historico);
+// historico.forEach(senha => {
+//     adicionarNaTabela(senha);
+//   });
 }
 
 //Abre o Historico
@@ -94,7 +108,30 @@ function fecharHistorico(){
 
 //Apaga o Histórico
 function deletaHistorico(){
-    localStorage.removeItem("historico");
+    let confirmacao = "Esta ação vai apagar todo o histórico.";
+
+    if (confirm(confirmacao) ==true ){
+
+        localStorage.removeItem("historico");
+        bodyTabela.innerHTML = '';
+
+    } else{
+        return;
+    }
+}
+
+//Cria as linhas e colunas da tabela
+function adicionarNaTabela(senha){
+    const tbody = document.getElementById("tabelaHistorico");
+    const row = document.createElement("tr");
+
+      row.innerHTML = `
+    <td>${senha}</td>
+    <td>${new Date().toLocaleString()}</td>
+    <td>${senha.length}</td>
+  `;
+
+  tbody.appendChild(row);
 }
 
 //Função para copiar a senha

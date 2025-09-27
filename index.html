@@ -14,10 +14,10 @@
   <h1>GERADOR DE SENHAS</h1>
 
   <div id="geradorSenha">
-    <div class="resultado"><input type="text" id="res" placeholder="teste" readonly/><button class="btn_copy" id="copiar">Copiar</button></div>
+    <div class="resultado"><input type="text" id="res" placeholder="Senha" readonly/><button class="btn_copy" id="copiar">Copiar</button></div>
             
       <div class="controles">
-          <input type="number" class="input" id="tamanhoSenha"/>
+          <input type="number" max="50" min="8" class="input" id="tamanhoSenha"/>
 
           <input type="checkbox" id="minuscula" value="minuscula">
           <label for="minuscula"> Minuscula </label>
@@ -25,7 +25,7 @@
             <input type="checkbox" id="maiuscula" value="maiuscula">
           <label for="maiuscula"> Maiúscula </label>
 
-            <input type="checkbox" id="numero" value="1" max="150" min="1">
+            <input type="checkbox" id="numero" value="1" >
           <label for="numero"> 123... </label>
 
               <input type="checkbox" id="especiais" value="especiais">
@@ -38,26 +38,27 @@
       </div>
   </div>
 
-  <div class="historico" id="histAparece">
+<div class="historico" id="histAparece">
+  <table>
+    <thead>
+      <tr class="trTable">
+        <th>Senha</th>
+        <th>Data/Hora</th>
+        <th>Tamanho</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaHistorico">
 
-    <div id="historicoDiv">
-        <table>
-            <thead>
-                <tr>
-                    <th>Senha</th>
-                    <th>Data/Hora</th>
-                    <th>Tamanho</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aqui entra cada linha gerada -->
-            </tbody>
-        </table>
-    </div>
+    </tbody>
+  </table>
 
-          <button id="fechar">Fechar</button>
-          <button id="deletar">Deletar</button>
-  </div> 
+  <div class="botoes-gerais">
+    <button id="fechar">Fechar</button>
+    <button id="deletar">Deletar</button>
+  </div>
+</div>
+
+
 
 </div>
   
