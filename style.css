@@ -11,6 +11,10 @@ html, body {
   align-items: center;
   width: 50%;
   padding: 10px;
+  background-color: #008080;
+  border-radius: 25px;
+  color: #ecfcfc;
+  font-family: "roboto";
 }
 
 .historico {
@@ -118,9 +122,7 @@ html, body {
   flex-direction: row;
 }
 
-.btn_copy {
-  margin-left: 5px;
-}
+
 
 .input {
   width: 35px;
@@ -134,4 +136,70 @@ html, body {
 #tabelaHistorico, .trTable {
   font-family: Roboto, Susa, Oswald, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 12px;
+}
+
+.container-toast{
+  position: relative;
+}
+
+
+.toast.show{
+  display: block;
+  animation: fadeIn 2s ease-in-out; 
+  opacity: 1;
+}
+
+.toast {
+  position: absolute;
+  top: 50%;
+  right: 102%;
+  transform: translateY(-10%);
+
+  background-color: #269473;
+  color: #fff;
+  padding: 0px 12px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+
+  opacity: 0;
+    transition: opacity 0.3s ease;
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+
+
+
+
+/*.toast-icon svg {
+  width: 30px;
+  height: 20px;
+  fill: #fff;
+}*/
+
+.toast-content {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+}
+
+
+/* From Uiverse.io by JasonMep */ 
+.button {
+  color: #ecf0f1;
+  font-size: 13px;
+  background-color: #e67e22;
+  border: 1px solid #20ffff;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 0px 6px 0px #222037;
+  transition: all 0.1s;
+}
+
+.button:active {
+  box-shadow: 0px 2px 0px #d35400;
+  position: relative;
+  top: 2px;
 }

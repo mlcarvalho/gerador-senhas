@@ -14,9 +14,23 @@
   <h1>GERADOR DE SENHAS</h1>
 
   <div id="geradorSenha">
-    <div class="resultado"><input type="text" id="res" placeholder="Senha" readonly/><button class="btn_copy" id="copiar">Copiar</button></div>
+    <div class="resultado"><input type="text" id="res" placeholder="Senha" readonly/><button class="button" id="copiar">Copiar</button></div>
             
       <div class="controles">
+<div class="container-toast">
+    <div class="toast">
+    
+    <div class="toast-content" id="toast-content">
+      
+    </div>
+<!--    <div class="toast-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M15.795 8.342l-5.909 9.545a1 1 0 0 1-1.628 0l-3.182-4.909a1 1 0 0 1 1.629-1.165l2.556 3.953L14.165 7.51a1 1 0 0 1 1.63 1.165z"></path>
+      </svg>
+    </div> -->
+  </div>
+</div>  
           <input type="number" max="50" min="8" class="input" id="tamanhoSenha"/>
 
           <input type="checkbox" id="minuscula" value="minuscula">
@@ -33,8 +47,8 @@
 
           
             
-        <button id="gerarSenha" >Gerar Senha</button>
-        <button id="btnHistorico" >Histórico</button>
+        <button class="button" id="gerarSenha" >Gerar Senha</button>
+        <button class="button" id="btnHistorico" >Histórico</button>
       </div>
   </div>
 
@@ -53,8 +67,8 @@
   </table>
 
   <div class="botoes-gerais">
-    <button id="fechar">Fechar</button>
-    <button id="deletar">Deletar</button>
+    <button class="button" id="fechar">Fechar</button>
+    <button class="button" id="deletar">Deletar</button>
   </div>
 </div>
 

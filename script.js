@@ -21,6 +21,9 @@ const letraMaiuscula = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const simbolos = "!@#$%^&*()-_=+[]{};:'\"\\|,<.>/?`~";
 const numeros = "0123456789";
 
+//Toast
+const toast = document.getElementById("toast-content");
+
 let geradorSenhaDisplay = document.getElementById("geradorSenha");
 
 //Escuta os botões.
@@ -30,12 +33,30 @@ btnfechar.addEventListener("click", fecharHistorico);
 btnDeletar.addEventListener("click", deletaHistorico);
 btnHistorico.addEventListener("click", abreHist);
 
+
+
 //limita a entrada manual do usuário no input de tamanho da senha
-tamanhoSenha.addEventListener("change", function(){
+tamanhoSenha.addEventListener("input", function(){
     let m = parseInt(this.value);
-    if (m < 8) this.value = 8;
-    if (m > 50) this.value = 50;
+    const toastAnim = document.querySelector(".toast");
+
+    if (m < 8) {
+        this.value = 8;
+        toastAnim.classList.add("show");
+        toast.innerHTML = "<p>Tamanho mínimo permitido: 8.</p>";
+        setTimeout(() => toastAnim.classList.remove("show"), 2000);
+    }
+    if (m > 50) {
+        this.value = 50;toastAnim.classList.add("show");
+        toast.innerHTML = "<p>Tamanho máximo permitido: 50.</p>";
+        setTimeout(() => toastAnim.classList.remove("show"), 2000);
+    }
+    
+
+
 });
+    
+
 
 //Função para gerar a senha
 function criaSenha() {
@@ -114,6 +135,7 @@ function deletaHistorico(){
 
         localStorage.removeItem("historico");
         bodyTabela.innerHTML = '';
+        fecharHistorico()
 
     } else{
         return;
