@@ -24,6 +24,28 @@ const numeros = "0123456789";
 //Toast
 const toast = document.getElementById("toast-content");
 
+//input
+
+const input = document.getElementById("tamanhoSenha");
+const plus = document.querySelector(".number-input .plus");
+const minus = document.querySelector(".number-input .minus");
+
+plus.addEventListener("click", () => {
+  let val = parseInt(input.value);
+  if (val < parseInt(input.max)) input.value = val + 1;
+});
+
+minus.addEventListener("click", () => {
+  let val = parseInt(input.value);
+  if (val > parseInt(input.min)) input.value = val - 1;
+});
+
+
+//input
+
+
+
+
 let geradorSenhaDisplay = document.getElementById("geradorSenha");
 
 //Escuta os botões.

@@ -1,82 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-<meta charset="UTF-8">
-<title>GERADOR DE SENHAS</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="style.css">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GERADOR DE SENHAS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    </head>
+  <body>
+    <div class="container">
+      <h1>GERADOR DE SENHAS</h1>
 
-<body>
-<div class="container">
-         
-  <h1>GERADOR DE SENHAS</h1>
+      <div id="geradorSenha">
+        <div class="resultado">
+          <input type="text" id="res" placeholder="Senha" readonly />
+          <button class="button" id="copiar">Copiar</button>
+        </div>
 
-  <div id="geradorSenha">
-    <div class="resultado"><input type="text" id="res" placeholder="Senha" readonly/><button class="button" id="copiar">Copiar</button></div>
-            
-      <div class="controles">
-<div class="container-toast">
-    <div class="toast">
-    
-    <div class="toast-content" id="toast-content">
-      
-    </div>
-<!--    <div class="toast-icon">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M0 0h24v24H0z" fill="none"></path>
-        <path d="M15.795 8.342l-5.909 9.545a1 1 0 0 1-1.628 0l-3.182-4.909a1 1 0 0 1 1.629-1.165l2.556 3.953L14.165 7.51a1 1 0 0 1 1.63 1.165z"></path>
-      </svg>
-    </div> -->
-  </div>
-</div>  
-          <input type="number" max="50" min="8" class="input" id="tamanhoSenha"/>
+        <div class="controles">
+          <div class="container-toast">
+            <div class="toast">
+              <div class="toast-content" id="toast-content"></div>
+            </div>
+          </div>
 
-          <input type="checkbox" id="minuscula" value="minuscula">
-          <label for="minuscula"> Minuscula </label>
+          <!-- linha com input de número e botões -->
+          <div class="row-controles">
+            <div class="number-input">
+              <button type="button" class="minus">-</button>
+              <input
+                type="number"
+                id="tamanhoSenha"
+                class="input"
+                min="8"
+                max="70"
+                value="50"
+              />
+              <button type="button" class="plus">+</button>
+            </div>
 
-            <input type="checkbox" id="maiuscula" value="maiuscula">
-          <label for="maiuscula"> Maiúscula </label>
+            <div class="buttons-row">
+              <button class="button" id="gerarSenha">Gerar Senha</button>
+              <button class="button" id="btnHistorico">Histórico</button>
+            </div>
+          </div>
 
-            <input type="checkbox" id="numero" value="1" >
-          <label for="numero"> 123... </label>
-
-              <input type="checkbox" id="especiais" value="especiais">
-          <label for="especiais"> [@#$%^&* </label>
-
-          
-            
-        <button class="button" id="gerarSenha" >Gerar Senha</button>
-        <button class="button" id="btnHistorico" >Histórico</button>
+          <!-- checkboxes empilhados -->
+          <div class="checkboxes">
+            <label
+              ><input type="checkbox" id="minuscula" value="minuscula" />
+              Minúscula</label
+            >
+            <label
+              ><input type="checkbox" id="maiuscula" value="maiuscula" />
+              Maiúscula</label
+            >
+            <label
+              ><input type="checkbox" id="numero" value="1" /> 123...</label
+            >
+            <label
+              ><input type="checkbox" id="especiais" value="especiais" />
+              [@#$%^&*]</label
+            >
+          </div>
+        </div>
       </div>
-  </div>
 
-<div class="historico" id="histAparece">
-  <table>
-    <thead>
-      <tr class="trTable">
-        <th>Senha</th>
-        <th>Data/Hora</th>
-        <th>Tamanho</th>
-      </tr>
-    </thead>
-    <tbody id="tabelaHistorico">
+      <div class="historico" id="histAparece">
+        <table>
+          <thead>
+            <tr class="trTable">
+              <th>Senha</th>
+              <th>Data/Hora</th>
+              <th>Tamanho</th>
+            </tr>
+          </thead>
+          <tbody id="tabelaHistorico"></tbody>
+        </table>
 
-    </tbody>
-  </table>
+        <div class="botoes-gerais">
+          <button class="button" id="fechar">Fechar</button>
+          <button class="button" id="deletar">Deletar</button>
+        </div>
+      </div>
+    </div>
 
-  <div class="botoes-gerais">
-    <button class="button" id="fechar">Fechar</button>
-    <button class="button" id="deletar">Deletar</button>
-  </div>
-</div>
-
-
-
-</div>
-  
-
-  <script src="script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
